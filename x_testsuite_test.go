@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestGenerator(t *testing.T) {
+func TestGotility(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Util Test Suite")
+	RunSpecs(t, "Gotility Test Suite")
 }
