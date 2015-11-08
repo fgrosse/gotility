@@ -1,7 +1,25 @@
 package gotility
 
+import "math/rand"
+
 // StringSlice adds useful functions to a slice of strings.
 type StringSlice []string
+
+// RandomStringSlice returns a new StringSlice filled with n elements.
+// The elements are chosen uniformly from the given elements using math/rand.
+// Remember to seed math/rand in order to get truly random slices.
+func RandomStringSlice(n int, elements ...string) StringSlice {
+	s := StringSlice{}
+	if len(elements) == 0 {
+		elements = append(elements, "")
+	}
+
+	for i := 0; i < n; i++ {
+		s.Add(elements[rand.Intn(len(elements))])
+	}
+
+	return s
+}
 
 // Contains returns true if this slice contains the given string.
 func (t StringSlice) Contains(s string) bool {
