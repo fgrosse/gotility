@@ -8,6 +8,13 @@ import (
 )
 
 var _ = Describe("StringSet", func() {
+	Describe("NewStringSet", func() {
+		It("should initialize a new StringSet", func() {
+			s := gotility.NewStringSet("foo", "bar", "baz")
+			Expect(s.All()).To(Equal([]string{"foo", "bar", "baz"}))
+		})
+	})
+
 	It("should have a simple method to check if a key is set", func() {
 		s := gotility.StringSet{}
 		key := "test"

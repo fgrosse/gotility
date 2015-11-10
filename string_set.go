@@ -5,6 +5,15 @@ import "strings"
 // The StringSet is a utility type to manage string sets.
 type StringSet map[string]struct{}
 
+func NewStringSet(initialValues ...string) StringSet {
+	s := StringSet{}
+	for i := range initialValues {
+		s[initialValues[i]] = struct{}{}
+	}
+
+	return s
+}
+
 // Set registers the string in this hash set
 func (s StringSet) Set(value string) {
 	s[value] = struct{}{}
