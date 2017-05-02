@@ -5,13 +5,16 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/fgrosse/gotility"
+	"sort"
 )
 
 var _ = Describe("StringSet", func() {
 	Describe("NewStringSet", func() {
 		It("should initialize a new StringSet", func() {
 			s := gotility.NewStringSet("foo", "bar", "baz")
-			Expect(s.All()).To(Equal([]string{"foo", "bar", "baz"}))
+			all := s.All()
+			sort.Strings(all)
+			Expect(all).To(Equal([]string{"bar", "baz", "foo"}))
 		})
 	})
 
